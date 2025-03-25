@@ -11,10 +11,7 @@ url += key
 print(url)
 
 list_of_food = []
-params = {
-    "pageSize": 200,
-    "pageNumber": 1
-}
+params = {"pageSize": 200, "pageNumber": 1}
 
 r = requests.get(url, params=params)
 foodlist = json.loads(r.text)
