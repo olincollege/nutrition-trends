@@ -42,31 +42,41 @@ def merge_items_with_nutrients(fah_items, fah_nutrients, fahevent):
     return merged
 
 
-merged_data = merge_items_with_nutrients(fah_items, fah_nutrients, fahevent)
+def main():
+    """need to add a docstring"""
+    merged_data = merge_items_with_nutrients(fah_items, fah_nutrients, fahevent)
 
-# Create 'month' column and group by month
-merged_data["month"] = merged_data["date"].dt.to_period("M")
-monthly_nutrients = (
-    merged_data.groupby("month")[["protein", "add_sugars", "carb", "totfat"]]
-    .sum()
-    .reset_index()
-)
-monthly_nutrients["month"] = monthly_nutrients["month"].dt.to_timestamp()
-
-# Plot nutrient trends
-plt.figure(figsize=(12, 6))
-for nutrient in ["protein", "add_sugars", "carb", "totfat"]:
-    plt.plot(
-        monthly_nutrients["month"], monthly_nutrients[nutrient], label=nutrient
+    # Create 'month' column and group by month
+    merged_data["month"] = merged_data["date"].dt.to_period("M")
+    monthly_nutrients = (
+        merged_data.groupby("month")[
+            ["protein", "add_sugars", "carb", "totfat"]
+        ]
+        .sum()
+        .reset_index()
     )
+    monthly_nutrients["month"] = monthly_nutrients["month"].dt.to_timestamp()
 
-plt.title("Monthly Nutrient Consumption from Food-at-Home Purchases")
-plt.xlabel("Month")
-plt.ylabel("Total Nutrient Amount")
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.savefig(
-    "monthly_nutrients_plot.png"
-)  # Saves the plot as a file (works even if matplotlib.use("Agg"))
-print("Plot saved as 'monthly_nutrients_plot.png'")
+    # Plot nutrient trends
+    plt.figure(figsize=(12, 6))
+    for nutrient in ["protein", "add_sugars", "carb", "totfat"]:
+        plt.plot(
+            monthly_nutrients["month"],
+            monthly_nutrients[nutrient],
+            label=nutrient,
+        )
+
+    plt.title("Monthly Nutrient Consumption from Food-at-Home Purchases")
+    plt.xlabel("Month")
+    plt.ylabel("Total Nutrient Amount")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig(
+        "monthly_nutrients_plot.png"
+    )  # Saves the plot as a file (works even if matplotlib.use("Agg"))
+    print("Plot saved as 'monthly_nutrients_plot.png'")
+
+
+if __name__ == "__main__":
+    main()
