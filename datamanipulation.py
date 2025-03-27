@@ -1,6 +1,6 @@
 import json
 
-with open("test2.json", encoding="utf-8") as file:
+with open("food_nutrition.json", encoding="utf-8") as file:
     data_string = file.read()
     data = json.loads(data_string)
 
@@ -23,22 +23,17 @@ matched_food = {key: None for key in american_food_keys}
 # print(matched_food)
 
 for food in data:
-    description = food.get(
-        "description", ""
-    ).lower()  # defines description in USDA data and makes it all lowercase
-    # print("Checking USDA description:", description)
+    description = food.get("description", "").lower()
 
-    for american_food in american_food_keys:  # start of the for loop
+    for american_food in american_food_keys:
         if american_food.lower() in description:
             # print(f"Matched '{american_food}' with USDA item: {description}")
             if matched_food[american_food] is not None:
                 pass  # Do nothing if the condition is false
             elif matched_food[american_food] is None:
-                matched_food[american_food] = (
-                    food  # Save the whole USDA food item
-                )
+                matched_food[american_food] = food
             else:
-                pass  # Do nothing if the condition is false
+                pass
 
 print(matched_food)
 
