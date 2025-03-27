@@ -4,7 +4,7 @@ import os
 
 url = "https://api.nal.usda.gov/fdc/v1/foods/list?api_key="
 
-# This is the API key file which I did not push intentionally
+# This is the API key file
 with open("key.txt", "r") as file:
     key = file.read()
 

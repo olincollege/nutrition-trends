@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot as plt
 
 with open("food_nutrition.json", encoding="utf-8") as file:
     data_string = file.read()
@@ -73,12 +74,6 @@ def get_food_details(food):
 
 food_dict = {}
 
-# for food_name, usda_item in matched_food.items():
-#     if usda_item:  # not None
-#         food_dict[food_name] = get_food_details(usda_item)
-#     else:
-#         food_dict[food_name] = None
-
 for food_name, usda_item in matched_food.items():
     if usda_item:  # Ensure the item is not None
         food_dict[food_name] = get_food_details(usda_item)
@@ -108,11 +103,11 @@ for food, values in food_dict.items():
     )
     nrf_score_list.append(nrf_score)
 
-import matplotlib.pyplot as plt
-import numpy as np
-
 plt.bar(american_food_keys, nrf_score_list)
 plt.title("NRF Score of the 10 most common foods in America")
 plt.xlabel("Foods")
 plt.ylabel("NRF Score")
 plt.show()
+
+plt.savefig("NRF_Score.png")
+print("Saved NRF_Score.png")
