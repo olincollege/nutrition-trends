@@ -2,21 +2,21 @@ import requests
 import json
 import os
 
-url = "https://api.nal.usda.gov/fdc/v1/foods/list?api_key="
+URL = "https://api.nal.usda.gov/fdc/v1/foods/list?api_key="
 
 # This is the API key file
 with open("key.txt", "r") as file:
     key = file.read()
 
-url += key
+URL += key
 
-print(url)
+print(URL)
 
 list_of_food = []
 params = {"pageSize": 200, "pageNumber": 1}
 
 
-r = requests.get(url, params=params)
+r = requests.get(URL, params=params)
 foodlist = json.loads(r.text)
 print(type(foodlist))
 print(foodlist[10])
@@ -33,7 +33,7 @@ while True:
         break
 
     params = {"pageSize": 200, "pageNumber": i}
-    r = requests.get(url, params=params)
+    r = requests.get(URL, params=params)
     foodlist = json.loads(r.text)
 
     list_of_food.extend(foodlist)
