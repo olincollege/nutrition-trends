@@ -35,7 +35,7 @@ while True:
         break
 
     params = {"pageSize": 200, "pageNumber": i}
-    r = requests.get(URL, params=params timeout=10)
+    r = requests.get(URL, params=params, timeout=10)
     foodlist = json.loads(r.text)
 
     list_of_food.extend(foodlist)
@@ -50,7 +50,7 @@ while True:
         json_file.seek(0)
         json_file.write(" ")
 
-    with open("temp.json", "r",  encoding="utf-8") as json_file:
+    with open("temp.json", "r", encoding="utf-8") as json_file:
         source = json_file.read()
 
     with open("food_nutrition.json", "rb+") as json_file:
