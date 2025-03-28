@@ -108,6 +108,3 @@ plt.title("NRF Score of the 10 most common foods in America")
 plt.xlabel("Foods")
 plt.ylabel("NRF Score")
 plt.show()
-
-plt.savefig("NRF_Score.png")
-print("Saved NRF_Score.png")
