@@ -4,14 +4,14 @@ This repository contains a notebook that analyzes nutrition trends through 3 dif
 
 
 ## Repository Contents
-- usda_api_data.py: A python script which loads data into a JSON file 
-- datamanipulation.py: A python script which goes through the JSON files containing data and matches foods we want to analyze with their nutrient counts and then manipulates the nutrient counts and calculates NRF scores, then uses these scores to create a data visualization
-- perhaps_interest.py: A python script that goes through mulitple CSV files to figure out what foods a collection of households bought over the course of a year to see total consumption of specific nutrients 
-- food_aps_mani.py: a python script that goes through multiple CSV files to figure out what foods a collection of households bought over and how much more it is than the daily value required for a balanced 2000 calorie diet 
-- pyproject.toml: Congif file for pylint black
-- requirements.txt: Required Packages
-- .gitignore: file types and general files to be ignored in git commits
-- .editorconfig: Configuration for a variety of editors and IDEs
+- ```usda_api_data.py```: A python script which loads data into a JSON file 
+- ```datamanipulation.py```: A python script which goes through the JSON files containing data and matches foods we want to analyze with their nutrient counts and then manipulates the nutrient counts and calculates NRF scores, then uses these scores to create a data visualization
+- ```perhaps_interest.py```: A python script that goes through mulitple CSV files to figure out what foods a collection of households bought over the course of a year to see total consumption of specific nutrients 
+- ```food_aps_mani.py```: a python script that goes through multiple CSV files to figure out what foods a collection of households bought over and how much more it is than the daily value required for a balanced 2000 calorie diet 
+- ```pyproject.toml```: Congif file for pylint black
+- ```requirements.txt```: Required Packages
+- ```.gitignore```: file types and general files to be ignored in git commits
+- ```.editorconfig```: Configuration for a variety of editors and IDEs
 
 ## Usage
 
