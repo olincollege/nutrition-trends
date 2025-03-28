@@ -15,7 +15,7 @@ This repository contains a notebook that analyzes nutrition trends through 3 dif
 
 ## Usage
 
-To use this repository, clone it to your local machine and run 'pip install requirements.txt' to download the required packages. Then (Esther insert here for csv). In order to obtain the data necessary to run this repository and get data visualizations you must get an API key from [https://fdc.nal.usda.gov/]. Instructions for obtaining this API Key are written in the README in the Data Source section below this section.
+To use this repository, clone it to your local machine and run 'pip install requirements.txt' to download the required packages.  In order to obtain the data necessary to run this repository and get data visualizations you must get an API key from [https://fdc.nal.usda.gov/]. Instructions for obtaining this API Key are written in the README in the Data Source section below this section. You must also download CSV files from the USDA USDA FoodAPS National Household Food Acquisition and Purchase Survey [https://www.ers.usda.gov/data-products/foodaps-national-household-food-acquisition-and-purchase-survey] website.
 
 ## Data Source
 
@@ -24,10 +24,8 @@ All data was obtained from [https://fdc.nal.usda.gov/].
 In order to obtain the API Key for the data necessary to run this repository you must go to the U.S Department of Agriculture's website and request an API Key. Go to this link [https://fdc.nal.usda.gov/api-key-signup] and follow the brief instructions on the website. Upon doing this the USDA will send an email to you with your API key in it (your email is provided to them by you when you sign up to request an API Key).
 Once you have your API key you must create a new file in your copy of this repository titled 'key.txt' and paste the API key into it. Save this file to your local machine, but do not publish it anywhere.
 
-(Esther insert other data for csv here)
+Next, go to the USDA FoodAPS National Household Food Acquisition and Purchase Survey [https://www.ers.usda.gov/data-products/foodaps-national-household-food-acquisition-and-purchase-survey], scroll to the bottom and download the Public-Use Data Filesand Codebooks CSV.
 
 ## Data Visualization
 
-To get the data visualizations run the file called 'computational_essay.ipynb'
-
-
+To get the data visualizations, run the file called 'computational_essay.ipynb'
