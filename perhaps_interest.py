@@ -1,9 +1,14 @@
+"""This goes through mulitple CSV files to figure out
+what foods a collection of households bought over the
+course of a year to see total consumption of specific nutrients
+"""
+
 import pandas as pd
+
+import matplotlib.pyplot as plt
 import matplotlib
 
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import pandas as pd
+matplotlib.use("Agg")  # use this if you are not dual booted/WSL
 
 # Load FoodAPS CSV
 fah_items = pd.read_csv("csv_data/faps_fahitem_puf.csv", encoding="latin-1")
@@ -13,14 +18,14 @@ fah_nutrients = pd.read_csv(
 fahevent = pd.read_csv("csv_data/faps_fahevent_puf.csv", encoding="latin-1")
 
 
-def merge_items_with_nutrients(fah_items, fah_nutrients, fahevent):
+def merge_items_with_nutrient(fah_items, fah_nutrients, fahevent):
     """
     Merge food-at-home item purchases with event dates and nutrient info.
 
     Parameters:
-        fah_items (DataFrame): Food-at-home item purchases (faps_fahitem_puf.csv)
-        fah_nutrients (DataFrame): Nutrient information (faps_fahnutrients.csv)
-        fahevent (DataFrame): Event-level info with purchase date (faps_fahevent_puf.csv)
+        fah_items (DataFrame): Food-at-home item purchases
+        fah_nutrients (DataFrame): Nutrient information
+        fahevent (DataFrame): Event-level info with purchase date
 
     Returns:
         DataFrame: Merged dataset with date and nutrient values
@@ -44,7 +49,7 @@ def merge_items_with_nutrients(fah_items, fah_nutrients, fahevent):
 
 def main():
     """need to add a docstring"""
-    merged_data = merge_items_with_nutrients(fah_items, fah_nutrients, fahevent)
+    merged_data = merge_items_with_nutrient(fah_items, fah_nutrients, fahevent)
 
     # Create 'month' column and group by month
     merged_data["month"] = merged_data["date"].dt.to_period("M")
