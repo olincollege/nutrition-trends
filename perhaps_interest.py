@@ -48,7 +48,7 @@ def merge_items_with_nutrient(fah_items, fah_nutrients, fahevent):
 
 
 def main():
-    """need to add a docstring"""
+    """grouping months with nutrients"""
     merged_data = merge_items_with_nutrient(fah_items, fah_nutrients, fahevent)
 
     # Create 'month' column and group by month
