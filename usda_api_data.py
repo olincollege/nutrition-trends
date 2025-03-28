@@ -58,7 +58,7 @@ while True:
         COMMA = ","
         json_file.write(COMMA.encode("utf-8"))
 
-    with open("food_nutrition.json", "a") as json_file:
+    with open("food_nutrition.json", "a", encoding="utf-8") as json_file:
         json_file.write(source)
 
     i += 1
